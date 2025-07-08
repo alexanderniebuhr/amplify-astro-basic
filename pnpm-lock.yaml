@@ -15,8 +15,8 @@ importers:
         specifier: ^7.1.0
         version: 7.1.0(@types/node@24.0.10)(astro@5.11.0(@types/node@24.0.10)(rollup@4.44.2)(typescript@5.8.3))(svelte@5.35.4)(typescript@5.8.3)
       '@craftlions/astro-adapter':
-        specifier: 1.9.5
-        version: 1.9.5(@types/node@24.0.10)(astro@5.11.0(@types/node@24.0.10)(rollup@4.44.2)(typescript@5.8.3))(rollup@4.44.2)
+        specifier: 1.9.6
+        version: 1.9.6(@types/node@24.0.10)(astro@5.11.0(@types/node@24.0.10)(rollup@4.44.2)(typescript@5.8.3))(rollup@4.44.2)
       '@types/react':
         specifier: ^19.1.8
         version: 19.1.8
@@ -165,8 +165,8 @@ packages:
   '@capsizecss/unpack@2.4.0':
     resolution: {integrity: sha512-GrSU71meACqcmIUxPYOJvGKF0yryjN/L1aCuE9DViCTJI7bfkjgYDPD1zbNDcINJwSSP6UaBZY9GAbYDO7re0Q==}
 
-  '@craftlions/astro-adapter@1.9.5':
-    resolution: {integrity: sha512-36sMEGK027M0moBX8WsDUP0WJ7sgumDA1tQf8r9SLE5Yk9jfi+zYmPgQFwAGN78WlpHgCSGcK5GZ941n6cpRXA==}
+  '@craftlions/astro-adapter@1.9.6':
+    resolution: {integrity: sha512-+8yBhJjX1MRa+1rII8M27Yt5HRSD8nTSY8+qGdBviXcQaREWZld2/Y9G13MKZmTwpo72eGB1Vf3qVo1foNYZzg==}
     peerDependencies:
       astro: ^5.0.0
 
@@ -2319,7 +2319,7 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
-  '@craftlions/astro-adapter@1.9.5(@types/node@24.0.10)(astro@5.11.0(@types/node@24.0.10)(rollup@4.44.2)(typescript@5.8.3))(rollup@4.44.2)':
+  '@craftlions/astro-adapter@1.9.6(@types/node@24.0.10)(astro@5.11.0(@types/node@24.0.10)(rollup@4.44.2)(typescript@5.8.3))(rollup@4.44.2)':
     dependencies:
       '@astrojs/internal-helpers': 0.6.1
       '@vercel/nft': 0.29.4(rollup@4.44.2)
