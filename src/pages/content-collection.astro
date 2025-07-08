@@ -1,77 +1,93 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
 
 // Fetch all blog posts from the content collection
-const blogPosts = await getCollection('blog');
+const blogPosts = await getCollection("blog");
 
 // Sort posts by publication date (newest first)
-const sortedPosts = blogPosts.sort((a, b) => 
-	new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+const sortedPosts = blogPosts.sort(
+	(a, b) =>
+		new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime(),
 );
 ---
 
 <Layout title="Content Collection Demo">
 	<main>
 		<h1>📚 Content Collection Demo</h1>
-		<p>This page demonstrates Astro's Content Collections feature for managing and querying content with type safety.</p>
-		
+		<p>
+			This page demonstrates Astro's Content Collections feature for managing
+			and querying content with type safety.
+		</p>
+
 		<div class="collection-info">
 			<h2>📊 Collection Statistics</h2>
 			<p><strong>Total Posts:</strong> {blogPosts.length}</p>
 			<p><strong>Collection Type:</strong> Content (Markdown/MDX)</p>
 			<p><strong>Schema Validation:</strong> ✅ Enabled</p>
 		</div>
-		
+
 		<div class="posts-section">
 			<h2>📝 Blog Posts</h2>
 			<div class="posts-grid">
-				{sortedPosts.map((post) => (
-					<article class="post-card">
-						<h3>{post.data.title}</h3>
-						<p class="post-meta">
-							<span class="author">By {post.data.author}</span>
-							<span class="date">{post.data.pubDate.toLocaleDateString()}</span>
-						</p>
-						<p class="description">{post.data.description}</p>
-						{post.data.tags && (
-							<div class="tags">
-								{post.data.tags.map((tag) => (
-									<span class="tag">{tag}</span>
-								))}
-							</div>
-						)}
-						<a href={`/blog/${post.slug}`} class="read-more">Read More →</a>
-					</article>
-				))}
+				{
+					sortedPosts.map((post) => (
+						<article class="post-card">
+							<h3>{post.data.title}</h3>
+							<p class="post-meta">
+								<span class="author">By {post.data.author}</span>
+								<span class="date">
+									{post.data.pubDate.toLocaleDateString()}
+								</span>
+							</p>
+							<p class="description">{post.data.description}</p>
+							{post.data.tags && (
+								<div class="tags">
+									{post.data.tags.map((tag) => (
+										<span class="tag">{tag}</span>
+									))}
+								</div>
+							)}
+							<a href={`/blog/${post.slug}/`} class="read-more">
+								Read More →
+							</a>
+						</article>
+					))
+				}
 			</div>
 		</div>
-		
+
 		<div class="features-section">
 			<h2>✨ Content Collections Features</h2>
 			<div class="features-grid">
 				<div class="feature-card">
 					<h3>🛡️ Type Safety</h3>
-					<p>Full TypeScript support with automatic type generation from your schema</p>
+					<p>
+						Full TypeScript support with automatic type generation from your
+						schema
+					</p>
 				</div>
-				
+
 				<div class="feature-card">
 					<h3>✅ Validation</h3>
 					<p>Automatic validation of frontmatter data against your schema</p>
 				</div>
-				
+
 				<div class="feature-card">
 					<h3>🔍 Querying</h3>
-					<p>Powerful querying with <code>getCollection()</code> and <code>getEntry()</code></p>
+					<p>
+						Powerful querying with <code>getCollection()</code> and <code
+							>getEntry()</code>
+					</p>
 				</div>
-				
+
 				<div class="feature-card">
 					<h3>📁 Organization</h3>
 					<p>Organize content in collections with consistent structure</p>
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="file-structure">
 			<h2>📂 File Structure</h2>
 			<pre><code>src/
@@ -85,25 +101,38 @@ const sortedPosts = blogPosts.sort((a, b) =>
     └── blog/
         └── [slug].astro   # Dynamic route for posts</code></pre>
 		</div>
-		
+
 		<div class="benefits">
 			<h2>🎯 Benefits of Content Collections</h2>
 			<ul>
-				<li><strong>Developer Experience:</strong> IntelliSense and type checking for content</li>
-				<li><strong>Content Validation:</strong> Catch errors early with schema validation</li>
-				<li><strong>Performance:</strong> Optimized content loading and caching</li>
-				<li><strong>Flexibility:</strong> Support for Markdown, MDX, and JSON content</li>
-				<li><strong>Scalability:</strong> Efficient handling of large amounts of content</li>
-				<li><strong>SEO:</strong> Built-in support for metadata and structured data</li>
+				<li>
+					<strong>Developer Experience:</strong> IntelliSense and type checking for
+					content
+				</li>
+				<li>
+					<strong>Content Validation:</strong> Catch errors early with schema validation
+				</li>
+				<li>
+					<strong>Performance:</strong> Optimized content loading and caching
+				</li>
+				<li>
+					<strong>Flexibility:</strong> Support for Markdown, MDX, and JSON content
+				</li>
+				<li>
+					<strong>Scalability:</strong> Efficient handling of large amounts of content
+				</li>
+				<li>
+					<strong>SEO:</strong> Built-in support for metadata and structured data
+				</li>
 			</ul>
 		</div>
-		
+
 		<a href="/" class="back-link">← Back to Home</a>
 	</main>
 </Layout>
 
 <style>
-		main {
+	main {
 		margin: auto;
 		padding: 1rem;
 		width: 800px;
@@ -112,16 +141,16 @@ const sortedPosts = blogPosts.sort((a, b) =>
 		font-size: 20px;
 		line-height: 1.6;
 	}
-	
+
 	nav ul {
 		list-style: none;
 		padding: 0;
 	}
-	
+
 	nav li {
 		margin: 0.5rem 0;
 	}
-	
+
 	nav a {
 		color: #311d42;
 		text-decoration: underline;
@@ -129,11 +158,11 @@ const sortedPosts = blogPosts.sort((a, b) =>
 		border-radius: 4px;
 		transition: background-color 0.3s;
 	}
-	
+
 	nav a:hover {
 		background-color: rgba(79, 57, 250, 0.1);
 	}
-	
+
 	h1 {
 		font-size: 4rem;
 		font-weight: 700;
@@ -141,7 +170,7 @@ const sortedPosts = blogPosts.sort((a, b) =>
 		text-align: center;
 		margin-bottom: 1em;
 	}
-	
+
 	h2 {
 		color: #000000;
 	}
@@ -151,7 +180,7 @@ const sortedPosts = blogPosts.sort((a, b) =>
 		border-radius: 1px;
 		border: 1px solid transparent;
 		padding: 6px 8px;
-		background-color:#dadada;
+		background-color: #dadada;
 		width: 100%;
 	}
 

@@ -1,30 +1,67 @@
 ---
-import { Image } from 'astro:assets';
-import Layout from '../layouts/Layout.astro';
-import astroImg from "../assets/astro.svg"
+import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
+import astroImg from "../assets/astro.svg";
 ---
 
 <Layout title="Astro Demo App">
 	<main>
 		<h1>Astro Demo Application</h1>
-		<Image id="astroImg" src={astroImg} alt="s"/>
-		<p>Welcome to the Astro demo app showcasing various rendering modes and features!</p>
-		
+		<Image id="astroImg" src={astroImg} alt="s" />
+		<p>
+			Welcome to the Astro demo app showcasing various rendering modes and
+			features!
+		</p>
+
 		<nav>
 			<h2>📋 Demo Pages</h2>
 			<ol>
-				<li><a href="/static-prerendered">Prerendering: Static Page (SSG)</a></li>
-				<li><a href="/ssg-dynamic/example-slug">Prerendering: Static Page (SSG) w/ Dynamic Route</a></li>
-				<li><a href="/prerendering-image-optimization">Prerendering: Image Optimization</a></li>
-				<li><a href="/content-collection">Prerendering: Content Collection Blog</a></li>
-				<li><a href="/client-side">Prerendering: Static Page with client-side JS using &lt;script&gt; tag</a></li>
-				<li><a href="/react-component">Client Island: React Component</a></li>
-				<li><a href="/svelte-component">Client Island: Svelte Component</a></li>
-				<li><a href="/ssr-page">Server Island or Server Side Rendering (SSR)</a></li>
-				<li><a href="/ssr-dynamic/example-id">Server Island: Dynamic Route</a></li>
-				<li><a href="/ssr-image-optimization">Server Island: Image Optimization</a></li>
-				<li><a href="/image-optimization-external">Server Island: External Image Optimization</a></li>
-				<li><a href="/nonexistent-page">404 Page Demo</a></li>
+				<li>
+					<a href="/static-prerendered/">Prerendering: Static Page (SSG)</a>
+				</li>
+				<li>
+					<a href="/ssg-dynamic/example-slug/"
+						>Prerendering: Static Page (SSG) w/ Dynamic Route</a
+					>
+				</li>
+				<li>
+					<a href="/prerendering-image-optimization/"
+						>Prerendering: Image Optimization</a
+					>
+				</li>
+				<li>
+					<a href="/content-collection/"
+						>Prerendering: Content Collection Blog</a
+					>
+				</li>
+				<li>
+					<a href="/client-side/"
+						>Prerendering: Static Page with client-side JS using &lt;script&gt;
+						tag</a
+					>
+				</li>
+				<li><a href="/react-component/">Client Island: React Component</a></li>
+				<li>
+					<a href="/svelte-component/">Client Island: Svelte Component</a>
+				</li>
+				<li>
+					<a href="/ssr-page">Server Island or Server Side Rendering (SSR)</a>
+				</li>
+				<li>
+					<a href="/ssr-dynamic/example-id/">Server Island: Dynamic Route</a>
+				</li>
+				<li>
+					<a href="/ssr-image-optimization/"
+						>Server Island: Image Optimization</a
+					>
+				</li>
+				<li>
+					<a href="/image-optimization-external/"
+						>Server Island: External Image Optimization</a
+					>
+				</li>
+				<li><a href="/nonexistent-page/">404 Page Demo (Indirect)</a></li>
+				<li><a href="/404">404 Page Demo (Direct)</a></li>
 				<li><a href="/500">500 Page Demo</a></li>
 			</ol>
 		</nav>
@@ -41,16 +78,16 @@ import astroImg from "../assets/astro.svg"
 		font-size: 20px;
 		line-height: 1.6;
 	}
-	
+
 	nav ul {
 		list-style: none;
 		padding: 0;
 	}
-	
+
 	nav li {
 		margin: 0.5rem 0;
 	}
-	
+
 	nav a {
 		color: #311d42;
 		text-decoration: underline;
@@ -68,11 +105,11 @@ import astroImg from "../assets/astro.svg"
 		z-index: -1;
 		filter: blur(100px);
 	}
-	
+
 	nav a:hover {
 		background-color: rgba(79, 57, 250, 0.1);
 	}
-	
+
 	h1 {
 		font-size: 4rem;
 		font-weight: 700;
@@ -80,10 +117,8 @@ import astroImg from "../assets/astro.svg"
 		text-align: center;
 		margin-bottom: 1em;
 	}
-	
+
 	h2 {
 		color: #000000;
 	}
-
-	
 </style>
